@@ -1,69 +1,53 @@
 import 'package:flutter/material.dart';
-
 import 'package:camera/camera.dart';
 
 class TakePictureScreen extends StatefulWidget {
-  final CameraDescription camera;
 
+  final CameraDescription camera;
   const TakePictureScreen({
     Key key,
     @required this.camera,
   }) : super(key: key);
 
-
-
   @override
   TakePictureScreenState createState() => TakePictureScreenState();
+
 }
 
 class TakePictureScreenState extends State<TakePictureScreen> {
+
   CameraController _controller;
   Future<void> _initializeControllerFuture;
 
   @override
   void initState() {
     super.initState();
-    // To display the current output from the Camera,
-    // create a CameraController.
     _controller = CameraController(
-      // Get a specific camera from the list of available cameras.
       widget.camera,
-      // Define the resolution to use.
       ResolutionPreset.medium,
     );
-
-    // Next, initialize the controller. This returns a Future.
     _initializeControllerFuture = _controller.initialize();
   }
 
   @override
   void dispose() {
-    // Dispose of the controller when the widget is disposed.
     _controller.dispose();
     super.dispose();
   }
 
-  String path;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        // Wait until the controller is initialized before displaying the
-        // camera preview. Use a FutureBuilder to display a loading spinner
-        // until the controller has finished initializing.
         body: Stack(
           children: [
             FutureBuilder<void>(
               future: _initializeControllerFuture,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  // If the Future is complete, display the preview.
-                 // return CameraPreview(_controller);
-                  
                   return CameraPreview(_controller);
                 } else {
-                  // Otherwise, display a loading indicator.
                   return Center(child: CircularProgressIndicator());
                 }
               },
@@ -72,94 +56,150 @@ class TakePictureScreenState extends State<TakePictureScreen> {
               backgroundColor: Colors.transparent,
               title: Row(
                 children: [
-                  Icon(Icons.settings, size: 35,),
+                  InkWell(
+                    child: Icon(Icons.settings, size: 35,), onTap: ()
+                  {
+                    //implement function
+                  },),
                   Spacer(),
-                  Icon(Icons.flash_off, size: 35,),
+                  InkWell(child: Icon(Icons.flash_off, size: 35,),
+                  onTap: (){
+                    //implement function
+                  },),
                   Spacer(),
-                  Icon(Icons.clear, size: 35,),
+                  InkWell(child: Icon(Icons.clear, size: 35,),
+                  onTap: (){
+                    //implement function
+                  },
+                  ),
                 ],
               ),
             ),
             Positioned(
               bottom: 180,
-              right: 75,
-              child: Row(
-                children: [
 
-                  InkWell(
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Image(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 40,
-                        image:
-                        AssetImage('images/OriginalonTransparentLogo.png'),
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                  SizedBox(width: 12,),
-                  InkWell(
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Image(
-                        alignment: Alignment.center,
-                        height: 60,
-                        width: 60,
-                        image:
-                        AssetImage('images/OriginalonTransparentLogo.png'),
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
 
-                  SizedBox(width: 12,),
-                  InkWell(
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Image(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 40,
-                        image:
-                        AssetImage('images/OriginalonTransparentLogo.png'),
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/subfashion_shopping.png'),
+                          ),
+                        ),
+                        onTap: () {},
                       ),
-                    ),
-                    onTap: () {},
-                  ),
-                  SizedBox(width: 12,),
-                  InkWell(
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Image(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 40,
-                        image:
-                        AssetImage('images/OriginalonTransparentLogo.png'),
+                      SizedBox(width: 10,),
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/subfashion_fitting.png'),
+                          ),
+                        ),
+                        onTap: () {},
                       ),
-                    ),
-                    onTap: () {},
-                  ),
 
-                ],
+                      SizedBox(width: 20,),
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/subfood_recipe.png'),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                      SizedBox(width: 10,),
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/subfood_calories.png'),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+
+                      SizedBox(width: 20,),
+
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/image.png'),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                      SizedBox(width: 10,),
+                      InkWell(
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image(
+                            alignment: Alignment.center,
+                            height: 50,
+                            width: 50,
+                            image:
+                            AssetImage('images/subblind_navigation.png'),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+
+                    ],
+                  ),
+                ),
               ),
             ),
             Positioned(
@@ -172,43 +212,45 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                   children: [
                     InkWell(
                       child: Container(
-                        height: 40,
-                        width: 40,
+                        height: 80,
+                        width: 80,
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(30)),
+                            border: Border.all(color: Colors.white, width: 3),
+                            borderRadius: BorderRadius.circular(40)),
                         child: Image(
                           alignment: Alignment.center,
                           height: 30,
                           width: 30,
                           image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
+                          AssetImage('images/fashionWhite.png'),
                         ),
                       ),
                       onTap: () {},
                     ),
-
-                    SizedBox(width: 20,),
-
+                    SizedBox(
+                      width: 40,
+                    ),
                     InkWell(
                       child: Container(
-                        height: 60,
-                        width: 60,
+                        height: 80,
+                        width: 80,
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(30)),
+                            border: Border.all(color: Colors.white, width: 3),
+                            borderRadius: BorderRadius.circular(40)),
                         child: Image(
                           alignment: Alignment.center,
                           height: 30,
                           width: 30,
                           image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
+                          AssetImage('images/foodWhite.png'),
                         ),
                       ),
                       onTap: () {},
                     ),
 
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 40,
+                    ),
 
                     InkWell(
                       child: Container(
@@ -222,47 +264,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                           height: 30,
                           width: 30,
                           image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-
-                    SizedBox(width: 20,),
-
-                    InkWell(
-                      child: Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Image(
-                          alignment: Alignment.center,
-                          height: 30,
-                          width: 30,
-                          image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-
-                    SizedBox(width: 20,),
-
-                    InkWell(
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Image(
-                          alignment: Alignment.center,
-                          height: 30,
-                          width: 30,
-                          image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
+                          AssetImage('images/blindAidWhite.png'),
                         ),
                       ),
                       onTap: () {},
@@ -270,7 +272,6 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 
                   ],
                 )),
-
             Positioned(
               bottom: 0,
               left: 0,
@@ -299,57 +300,23 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                           height: 40,
                           width: 40,
                           image:
-                          AssetImage('images/OriginalonTransparentLogo.png'),
+                          AssetImage('images/foodWhite.png'),
                         ),
 
                       ),
                     ),
-
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Icon(Icons.camera_front_rounded, size: 30,),
                     )
-
-
                   ],
                 ),
-
               ),
-            )
+            ),
           ],
         ),
-//      floatingActionButton: FloatingActionButton(
-//        child: Icon(Icons.camera_alt),
-//        // Provide an onPressed callback.
-//        onPressed: () async {
-//          // Take the Picture in a try / catch block. If anything goes wrong,
-//          // catch the error.
-//          try {
-//            // Ensure that the camera is initialized.
-//            await _initializeControllerFuture;
-//
-//            // Attempt to take a picture and get the file `image`
-//            // where it was saved.
-//            final image = await _controller.takePicture(path);
-//
-//            // If the picture was taken, display it on a new screen.
-//            Navigator.push(
-//              context,
-//              MaterialPageRoute(
-//                builder: (context) => DisplayPictureScreen(
-//                  // Pass the automatically generated path to
-//                  // the DisplayPictureScreen widget.
-//                 // imagePath: image?.path,
-//                ),
-//              ),
-//            );
-//          } catch (e) {
-//            // If an error occurs, log the error to the console.
-//            print(e);
-//          }
-//        },
-//      ),
+
       ),
     );
   }

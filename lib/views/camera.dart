@@ -80,125 +80,123 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Expanded(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
 
-                      InkWell(
-                        child: Container(
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/subfashion_shopping.png'),
-                          ),
+                          image:
+                          AssetImage('images/subfashion_shopping.png'),
                         ),
-                        onTap: () {},
                       ),
-                      SizedBox(width: 10,),
-                      InkWell(
-                        child: Container(
+                      onTap: () {},
+                    ),
+                    SizedBox(width: 10,),
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/subfashion_fitting.png'),
-                          ),
+                          image:
+                          AssetImage('images/subfashion_fitting.png'),
                         ),
-                        onTap: () {},
                       ),
+                      onTap: () {},
+                    ),
 
-                      SizedBox(width: 20,),
-                      InkWell(
-                        child: Container(
+                    SizedBox(width: 20,),
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/subfood_recipe.png'),
-                          ),
+                          image:
+                          AssetImage('images/subfood_recipe.png'),
                         ),
-                        onTap: () {},
                       ),
-                      SizedBox(width: 10,),
-                      InkWell(
-                        child: Container(
+                      onTap: () {},
+                    ),
+                    SizedBox(width: 10,),
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/subfood_calories.png'),
-                          ),
+                          image:
+                          AssetImage('images/subfood_calories.png'),
                         ),
-                        onTap: () {},
                       ),
+                      onTap: () {},
+                    ),
 
-                      SizedBox(width: 20,),
+                    SizedBox(width: 20,),
 
-                      InkWell(
-                        child: Container(
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/image.png'),
-                          ),
+                          image:
+                          AssetImage('images/image.png'),
                         ),
-                        onTap: () {},
                       ),
-                      SizedBox(width: 10,),
-                      InkWell(
-                        child: Container(
+                      onTap: () {},
+                    ),
+                    SizedBox(width: 10,),
+                    InkWell(
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Image(
+                          alignment: Alignment.center,
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Image(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            image:
-                            AssetImage('images/subblind_navigation.png'),
-                          ),
+                          image:
+                          AssetImage('images/subblind_navigation.png'),
                         ),
-                        onTap: () {},
                       ),
+                      onTap: () {},
+                    ),
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ),
